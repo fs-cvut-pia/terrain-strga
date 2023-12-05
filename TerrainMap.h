@@ -9,10 +9,19 @@
 
 struct Point {
     Point() {};
-    Point(int i, int j) : x(i), y(j) {};
+    //Point(int i, int j) : x(i), y(j) {};
+    Point(int i, int j, double k=0, int l =-1, int m =-1) : x(i), y(j), r(k), xp(l), yp(m) {}; //Addition
     int x;
     int y;
+    int xp; //Addition
+    int yp; //Addition
+    double r; //Addition
     constexpr static int nx_max = 10000;
+
+    bool operator>(const Point& other) const {
+        return r > other.r; // Added
+    }
+
     Point& operator= (double a) { x = a; y = a; return *this; };
     bool operator!= (Point const& v) const { return !(operator== (v)); };
     bool operator== (Point const& v) const { return x == v.x && y == v.y; };

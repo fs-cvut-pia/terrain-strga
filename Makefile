@@ -1,9 +1,10 @@
 all: findpath
 
 CPP = g++
-CPPFLAGS = -O2
+CPPFLAGS = -O2 -std=c++11
 
-SRCS = $(shell find -name '*.cpp')
+#SRCS = $(shell find -name '*.cpp')
+SRCS = $(wildcard *.cpp)
 OBJS = $(patsubst %.cpp,%.o,$(SRCS))
 
 %.o: %.cpp

@@ -8,6 +8,7 @@
 class Path {
 public:
     Path(TerrainMap& m, std::string name_in, Point start_in, Point finish_in);
+    virtual ~Path() {}  // Virtual destructor - added
     virtual bool find() = 0;     // Implement this method to find the route and save it in vector<Point> path
     void printStats() const;     // Print out path statistics
     void saveToFile() const;     // Save path to file "name.dat"
